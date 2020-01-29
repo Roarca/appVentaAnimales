@@ -4,21 +4,25 @@
  * and open the template in the editor.
  */
 package com.example.dao;
-import com.example.model.Usuario;
+
+import com.example.model.Animales;
 import java.util.List;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
-
-
-public interface PersonaRepository extends Repository<Usuario,String>{
-    List<Usuario>findAll();
-    Usuario findById(String id);
+/**
+ *
+ * @author Pc
+ */
+public interface AnimalesRepository extends Repository<Animales,String>{
+    List<Animales>findAll();
+    Animales findById(int id);
+    Animales findByTipo(String tipo);
     //Persona findByNombre(String nombre);
-    Usuario save(Usuario u);
-    void delete(Usuario u);
+    Animales save(Animales u);
+    void delete(Animales u);
     //Para validaciones asincronas (Cosas a investigar)
-   @Query("select nombre from Usuario u")//JPQL
-   List<String> listadoUsuarios();
+   @Query("select id from Animales a")//JPQL
+   List<String> listadoAnimales();
+    
 }

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.model.Usuario;
-import com.example.service.PersonaService;
+import com.example.model.Clientes;
+import com.example.service.ClientesService;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,32 +20,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 @CrossOrigin(origins="http://localhost:4200",maxAge=3600)
 @RestController
 @RequestMapping
-public class PersonaController {
-	@Autowired
-	PersonaService service;
-@GetMapping("/usuarios")
-public List<Usuario>listar()
+public class ClientesController {
+@Autowired
+	ClientesService service;
+@GetMapping("/clientes")
+public List<Clientes>listar()
 {
-	return service.listadoUsuarios();
+	return service.listadoClientes();
 }
-@PostMapping("/usuarios")
-public Usuario agregar(@RequestBody Usuario u){
-   return service.altaUsuario(u); 
+@PostMapping("/clientes")
+public Clientes agregar(@RequestBody Clientes u){
+   return service.altaCliente(u); 
 }
-@GetMapping({"/usuarios/{id}"})
-public Usuario listarId(@PathVariable("id") String id)
+@GetMapping({"/clientes/{id}"})
+public Clientes listarId(@PathVariable("id") String id)
 {
-    return service.usuarioUnico(id);
+    return service.clienteUnico(id);
 }
-@PutMapping(path={"/usuarios/{id}"})
-public Usuario editar(@RequestBody Usuario u, @PathVariable("id") String id)
+@PutMapping(path={"/clientes/{id}"})
+public Clientes editar(@RequestBody Clientes u, @PathVariable("id") String id)
 {
-    u.setUsuario(id);
-    return service.editarUsuario(u);
+    u.setDni(id);
+    return service.editarCliente(u);
 }  
-@DeleteMapping(path={"/usuarios/{id}"})
-public Usuario delete(@PathVariable ("id") String id)
+@DeleteMapping(path={"/clientes/{id}"})
+public Clientes delete(@PathVariable ("id") String id)
 {
-    return service.eliminarUsuario(id);
-}
+    return service.eliminarCliente(id);
+}    
 }

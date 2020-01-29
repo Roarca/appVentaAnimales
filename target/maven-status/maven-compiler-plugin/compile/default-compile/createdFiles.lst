@@ -1,0 +1,6 @@
+com\example\demo\DemoApplication.class
+com\example\controller\PersonaController.class
+com\example\service\PersonaService.class
+com\example\dao\PersonaRepository.class
+com\example\model\Usuario.class
+com\example\service\PersonaServiceImp.class
