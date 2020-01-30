@@ -17,12 +17,13 @@ import org.springframework.data.repository.Repository;
 public interface AnimalesRepository extends Repository<Animales,String>{
     List<Animales>findAll();
     Animales findById(int id);
-    Animales findByTipo(String tipo);
+    List<Animales>findByTipo(String tipo);
     //Persona findByNombre(String nombre);
     Animales save(Animales u);
     void delete(Animales u);
     //Para validaciones asincronas (Cosas a investigar)
-   @Query("select id from Animales a")//JPQL
-   List<String> listadoAnimales();
+   @Query("select tipo from Animales a group by a.tipo")//JPQL
+   List<String> listadoAnimalesTipo();
+   
     
 }

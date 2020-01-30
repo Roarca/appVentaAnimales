@@ -30,6 +30,11 @@ public List<Animales>listar()
 {
 	return service.listadoAnimales();
 }
+@GetMapping("/animales/tipos")
+public List<String>listaTipos()
+{
+	return service.listadoAnimalesTipo();
+}
 @PostMapping("/animales")
 public Animales agregar(@RequestBody Animales a){
    return service.altaAnimal(a); 
@@ -39,6 +44,11 @@ public Animales listarId(@PathVariable("id") int id)
 {
     return service.animalUnico(id);
 }
+@GetMapping({"/animales/tipo/{tipo}"})
+public List<Animales> listarAnimalesBuscadosPorTipo(@PathVariable("tipo") String tipo)
+{
+    return service.listadoAnimalesBucandoPorTipo(tipo);
+}
 @PutMapping(path={"/animales/{id}"})
 public Animales editar(@RequestBody Animales a, @PathVariable("id") int id)
 {
@@ -46,7 +56,7 @@ public Animales editar(@RequestBody Animales a, @PathVariable("id") int id)
     return service.editarAnimal(a);
 }
 
-@GetMapping(path={"/animales/tipo/{id}"})
+@GetMapping(path={"/animalesss"})
 public Animales listarTipo(@PathVariable("id") String tipo)
 {
      return service.animalUnicoTipo(tipo);

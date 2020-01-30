@@ -21,17 +21,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping
 public class ClientesController {
-@Autowired
-	ClientesService service;
-@GetMapping("/clientes")
-public List<Clientes>listar()
-{
-	return service.listadoClientes();
-}
-@PostMapping("/clientes")
-public Clientes agregar(@RequestBody Clientes u){
-   return service.altaCliente(u); 
-}
+    @Autowired
+    ClientesService service;
+        
+    @GetMapping("/clientes")
+    public List<Clientes>listar()
+    {
+            return service.listadoClientes();
+    }
+    
+    @PostMapping("/clientes")
+    public Clientes agregar(@RequestBody Clientes u){
+       return service.altaCliente(u); 
+    }
 @GetMapping({"/clientes/{id}"})
 public Clientes listarId(@PathVariable("id") String id)
 {

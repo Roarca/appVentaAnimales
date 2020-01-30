@@ -47,5 +47,10 @@ private PersonaRepository repositorio;
             return p;
     }
 
+    @Override
+    public Usuario buscarPorUsuariosPass(String usuario, String pass) {
+        return repositorio.findByUsuarioAndContrasenia(usuario, pass);
+    }
+
 }
 

@@ -19,6 +19,8 @@ public interface PersonaRepository extends Repository<Usuario,String>{
     Usuario save(Usuario u);
     void delete(Usuario u);
     //Para validaciones asincronas (Cosas a investigar)
+   Usuario findByUsuarioAndContrasenia(String nombre, String contrasenia);
+    
    @Query("select nombre from Usuario u")//JPQL
    List<String> listadoUsuarios();
 }

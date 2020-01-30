@@ -12,5 +12,6 @@ public interface PersonaService {
     Usuario altaUsuario(Usuario u);
     Usuario editarUsuario(Usuario u);
     Usuario eliminarUsuario(String id);
-
+    Usuario buscarPorUsuariosPass(String usuario,String pass);
+    
 }

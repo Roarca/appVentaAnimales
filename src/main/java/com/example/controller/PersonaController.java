@@ -42,7 +42,14 @@ public Usuario editar(@RequestBody Usuario u, @PathVariable("id") String id)
 {
     u.setUsuario(id);
     return service.editarUsuario(u);
+}
+
+@GetMapping(path={"/usuarios/{user}/{pass}"})
+public Usuario buscarUsuariosContrasenia(@PathVariable("user") String user,@PathVariable("pass") String pass)
+{
+    return service.buscarPorUsuariosPass(user, pass);
 }  
+
 @DeleteMapping(path={"/usuarios/{id}"})
 public Usuario delete(@PathVariable ("id") String id)
 {

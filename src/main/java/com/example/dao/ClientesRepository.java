@@ -6,14 +6,16 @@
 package com.example.dao;
 
 import com.example.model.Clientes;
+import com.example.model.Usuario;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.Repository;
 
 /**
  *
  * @author Pc
  */
-public interface ClientesRepository {
+public interface ClientesRepository extends Repository<Clientes,String>{
      List<Clientes>findAll();
     Clientes findById(String id);
     //Persona findByNombre(String nombre);

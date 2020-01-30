@@ -17,5 +17,7 @@ public interface AnimalesService {
     Animales eliminarAnimal(int id);
 
     Animales animalUnicoTipo(String tipo);
+     List<String>listadoAnimalesTipo();
+    List<Animales>listadoAnimalesBucandoPorTipo(String tipo);
 
 }

@@ -45,8 +45,19 @@ private AnimalesRepository repositorio;
        return repositorio.findAll();
     }
 
+
+    @Override
+    public List<String> listadoAnimalesTipo() {
+        return repositorio.listadoAnimalesTipo();
+    }
+
     @Override
     public Animales animalUnicoTipo(String tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Animales> listadoAnimalesBucandoPorTipo(String tipo) {
         return repositorio.findByTipo(tipo);
     }
 
